@@ -40,3 +40,9 @@ models:
     # Applies to all files under models/example/
     example:
       +materialized: table
+seeds:
+  my_new_project:
+    +database: ASHISH    # Your Snowflake database
+    +schema: SEED        # Schema where seed tables will be created
+    +quote_columns: true # Ensures column names are quoted properly
+    +file_format: csv    # Treat CSV files correctly

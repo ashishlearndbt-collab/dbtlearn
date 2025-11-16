@@ -1,0 +1,38 @@
+version: 2
+
+# ---- Define your RAW sources ----
+sources:
+  - name: raw
+    database: ASHISH
+    schema: RAW
+    tables:
+      - name: sales_orders
+      - name: customers
+
+# ---- Define your STAGING models ----
+models:
+  - name: stg_sales_orders
+    description: "Cleaned and standardized sales orders data"
+    config:
+      schema: STG    # 👈 ensures output goes to ASHISH.STG
+      materialized: 'table'
+    #columns:
+    #  - name: order_id
+    #    description: "Unique identifier for each order"
+    #    tests:
+    #      - not_null
+    #  - name: order_date
+    #    description: "Order date"
+    #    tests:
+    #      - not_null
+
+  - name: stg_customers
+    description: "Cleaned and standardized customers data"
+    config:
+      schema: STG    # 👈 ensures output goes to ASHISH.STG
+    #columns:
+    #  - name: customer_id
+    #    description: "Unique customer identifier"
+    #    tests:
+    #      - unique
+    #      - not_null

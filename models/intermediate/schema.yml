@@ -1,0 +1,22 @@
+version: 2
+
+
+
+# ---- Define your intermediate models ----
+models:
+  - name: int_sales_summary
+    description: "Cleaned and standardized sales orders data"
+    config:
+      schema: int    # 👈 ensures output goes to ASHISH.STG
+      materialized: 'table'
+    #columns:
+    #  - name: order_id
+    #    description: "Unique identifier for each order"
+    #    tests:
+    #      - not_null
+    #  - name: order_date
+    #    description: "Order date"
+    #    tests:
+    #      - not_null
+
+ 
