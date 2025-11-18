@@ -1,3 +1,8 @@
+{{ config(
+    materialized='incremental',
+    schema='presentation',
+    unique_key=['customer_id', 'order_day']
+) }}
 
 
 with customer_summary as (
