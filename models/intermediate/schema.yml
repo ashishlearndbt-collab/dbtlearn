@@ -9,6 +9,8 @@ models:
     config:
       schema: int    # 👈 ensures output goes to ASHISH.STG
       materialized: 'table'
+      tags:
+       - sales
     #columns:
     #  - name: order_id
     #    description: "Unique identifier for each order"

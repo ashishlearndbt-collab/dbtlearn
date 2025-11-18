@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: sales_dashboard
+    description: "Customer sales dashboard with incremental loading."
+    config:
+      materialized: incremental
+      incremental_strategy: merge
+      schema: presentation
+      unique_key:
+        - customer_id
+        - order_day
+      tags:
+        - sales
+    columns:
+      - name: reporting_date
+        description: "The reporting date derived as order_day + 1."
+
+      - name: customer_id
+        description: "Unique identifier for the customer."
+
+      - name: customer_name
+        description: "Name of the customer."
+
+      - name: order_day
+        description: "The order date used to perform incremental loads."
+
+      - name: total_orders
+        description: "Total number of orders for the customer on the given day."
+
+      - name: total_quantity
+        description: "Total items ordered by the customer on the given day."
+
+      - name: total_sales
+        description: "Total sales value for the customer on the given day."
+
+      - name: avg_order_value
+        description: "Average order value = total_sales / total_orders."

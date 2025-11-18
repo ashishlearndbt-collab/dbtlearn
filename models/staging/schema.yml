@@ -16,6 +16,8 @@ models:
     config:
       schema: STG    # 👈 ensures output goes to ASHISH.STG
       materialized: 'table'
+      tags:
+        - sales
     #columns:
     #  - name: order_id
     #    description: "Unique identifier for each order"
@@ -30,6 +32,8 @@ models:
     description: "Cleaned and standardized customers data"
     config:
       schema: STG    # 👈 ensures output goes to ASHISH.STG
+      tags:
+        - sales  
     #columns:
     #  - name: customer_id
     #    description: "Unique customer identifier"

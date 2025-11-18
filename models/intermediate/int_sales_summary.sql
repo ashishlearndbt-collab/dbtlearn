@@ -16,7 +16,6 @@ joined as (
         o.order_date,
         o.customer_id,
         c.customer_name,
-
         o.product_id,
         o.quantity,
         o.price,
