@@ -22,6 +22,7 @@
     materialized='incremental',
     incremental_strategy='merge',
     unique_key=['customer_id', 'order_day']
+  
   )
 }}
 

@@ -12,27 +12,30 @@ models:
         - order_day
       tags:
         - sales
+
+      post-hook:
+        - |
+          {{ log_model_run(
+          status='success',
+          inserted="{{ adapter_response.get('num_inserted', 0) }}",
+          updated="{{ adapter_response.get('num_updated', 0) }}",
+          deleted="{{ adapter_response.get('num_deleted', 0) }}"
+          ) }}
+
     columns:
       - name: reporting_date
         description: "The reporting date derived as order_day + 1."
-
       - name: customer_id
         description: "Unique identifier for the customer."
-
       - name: customer_name
         description: "Name of the customer."
-
       - name: order_day
         description: "The order date used to perform incremental loads."
-
       - name: total_orders
         description: "Total number of orders for the customer on the given day."
-
       - name: total_quantity
         description: "Total items ordered by the customer on the given day."
-
       - name: total_sales
         description: "Total sales value for the customer on the given day."
-
       - name: avg_order_value
         description: "Average order value = total_sales / total_orders."
